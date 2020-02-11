@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            margin-top:40px;
+            margin-left:5px;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <button onclick="Yakala()" style="width:60px;height:30px;position:absolute">Yakala</button>
+    <button onclick="YerDegistir()" style="width:90px;height:30px;position:absolute;margin-left:65px">Yer Degistir</button>
+    <button onclick="Sifirla()" style="width:60px;height:30px;position:absolute;margin-left:160px">Sifirla</button>
+    <label style="width:120px;height:30px;position:absolute;margin-left:225px;margin-top:5px;"></label>
+
+    <img src="https://www.thisiscolossal.com/wp-content/uploads/2018/08/Isopoly_01.gif" />
+
+    <script>
+        var count = 0;
+        
+        $("img").on({
+            mouseover: function () {
+                if (count < 10) {
+                    count++;
+                    $("label").text(count + " kere tikladin");
+
+                    var x = Math.ceil(Math.random() * 500);
+                    var y = Math.ceil(Math.random() * 1000);
+                    $("img").css("margin-top", +x + "px")
+                        .css("margin-left", +y + "px");
+                }
+                else {
+                    alert("Çok başarısızsın 10 denemede yapamadın");
+                }
+            },
+            click: function () {
+                alert("tebrikler " + count + ". defada yakaladin");
+            }
+        });
+        
+        function Yakala() {
+            if (count < 10) {
+                alert("Süpersin!!! " + count + ". defada yakaladin");
+                Sifirla();
+            }
+            else {
+                alert("Çok başarısızsın 10 denemede yapamadın");
+            }
+        }
+
+        function YerDegistir() {
+            if (count < 10) {
+                count++;
+                $("label").text(count + " kere tikladin");
+                var x = Math.ceil(Math.random() * 500);
+                var y = Math.ceil(Math.random() * 1000);
+                $("img").css("margin-top", +x + "px")
+                    .css("margin-left", +y + "px");
+            }
+            else {
+                alert("Çok başarısızsın 10 denemede yapamadın");
+            }
+        }
+
+        function Sifirla() {
+            count = 0;
+            $("label").text("");
+            $("img").css("margin-top", "40px")
+                    .css("margin-left", "5px");
+        }
+        
+    </script>
+</body>
+</html>

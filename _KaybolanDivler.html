@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        #divKutu{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-left:5px;
+        }
+        button{
+            width:150px;
+            height:30px;
+        }
+    </style>
+</head>
+<body onload="randomRenk()">
+
+    <button onclick="divOlustur()">Kutu Olustur</button>
+    <button onclick="randomRenk()">Rastgele Renk Ver</button>
+
+    <div id="anaDiv" class="disDiv" style="display:flex">
+        <div id="divKutu" class="kutudiv"  onclick="divleriSil(this)"></div>
+        <div id="divKutu" class="kutudiv"  onclick="divleriSil(this)"></div>
+        <div id="divKutu" class="kutudiv" onclick="divleriSil(this)"></div>
+    </div>
+
+    <script>
+        function divleriSil(elem) {
+            elem.remove();
+        }
+
+        function divOlustur() {
+            var anadiv = document.getElementById("anaDiv");
+
+            randomRenk();
+
+            var div = document.createElement("div");
+            div.id = "divID";
+            div.className = "kutudiv";
+            div.style.width = "100px";
+            div.style.height = "100px";
+            div.style.backgroundColor = color;
+            div.style.marginLeft = "5px";
+            div.setAttribute("onclick", "divleriSil(this)");
+            anadiv.appendChild(div);  
+        }
+
+        var color;
+        function randomRenk() {
+            var boxes = document.querySelectorAll(".kutudiv");
+
+            for (i = 0; i < boxes.length; i++) {
+                var r = Math.ceil(Math.random() * 255);
+                var g = Math.ceil(Math.random() * 255);
+                var b = Math.ceil(Math.random() * 255);
+
+                color = "rgb(" + r + "," + g + "," + b + ")";
+
+                boxes[i].style.backgroundColor = color;
+            }
+        }
+    </script>
+</body>
+</html>

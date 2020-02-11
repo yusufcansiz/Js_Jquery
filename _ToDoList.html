@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Assets/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        p {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .Sil {
+            margin-left: 250px;
+        }
+
+        ul {
+            text-decoration-style: none;
+            list-style-type: none;
+        }
+
+        li {
+            border-bottom: 1px solid black;
+        }
+        #lilist:hover{
+            background-color:darkgray;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="container mt-2">
+
+        <div class="row" style="height:100px;">
+            <div class="col-lg-6 text-center" style="border:1px solid black;">
+                <div style="margin-top:25px;">
+                    <input id="GirisText" type="text" placeholder="Görev Yazınız.." />
+                    <input type="button" value="ADD" onclick="ToDoEkle()" />
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row col-lg-6" style="border:1px solid black;">
+                <div class="col-lg-6">
+                    <p>My List</p>
+                </div>
+                <div class="col-lg-6">
+                    <input type="button" id="Sil" value="Delete All" onclick="HepsiniSil()" />
+                </div>
+
+                <div class="col-lg-12" style="border:1px solid black;">
+                    <ul id="ToDoUl">
+                        <li id="lilist" onclick="Sil(this)">asd <a id="xsil" style="float:right;color:red;margin-right:10px;" onclick="Sil(this)">X</a></li>
+                        <li id="lilist" onclick="Sil(this)">fgh</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function ToDoEkle() {
+            var ul = document.getElementById("ToDoUl");
+
+            var liste = document.createElement("li");
+            //var buton = document.createElement("button").innerText("Sil");
+
+            liste.innerText = document.getElementById("GirisText").value;
+            liste.setAttribute("onclick", "Sil(this)");
+            liste.setAttribute("id", "lilist");
+
+            //input.setAttribute("onclick", "Sil(this)");
+
+            ToDoUl.appendChild(liste);
+            //ToDoUl.appendChild(input);
+            }
+
+    function Sil(li) {
+        li.remove();
+        //var ul = document.getElementById("lilist");
+        //var liste = document.getElementById("xsil");
+        //lilist.appendChild("xsil");
+        //xsil.appendChild.remove();
+            }
+
+    function HepsiniSil() {
+        var lii = document.querySelectorAll("#lilist");
+
+        for (var i = 0; i < lii.length; i++) {
+            lii[i].remove();
+        }
+    }
+    </script>
+
+
+    <script src="Assets/js/bootstrap.min.js"></script>
+</body>
+</html>
